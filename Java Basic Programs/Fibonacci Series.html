@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    //9  Fibonacci Series
+      let a = 0;
+      let b = 1;
+      function fibo(num){
+        document.write("Fibonacci Series for " + num + " number of values are :<br>");
+        document.write( a + "<br>" + b + "<br>");
+        for(let i = 2; i < num; i++){
+            let c = a + b;
+            document.write(c + "<br>");
+            a = b;
+            b = c;
+          }
+      }
+    let num = prompt("Enter number of Fibonacci Series :");
+    fibo(num);
+    </script>
+    </head>
+    </html>

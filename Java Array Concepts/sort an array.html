@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    // program to sort array by property name
+
+function compareName(a, b) {
+
+    // converting to uppercase to have case-insensitive comparison
+    const name1 = a.name;
+    const name2 = b.name;
+    comparison = name1-name2 ? 1 : -1;
+    return comparison;
+}
+
+const students = [{name: 'Sara', age:24},{name: 'John', age:24}, {name: 'Jack', age:25}];
+
+console.log(students.sort(compareName));
+
+    </script>
+  </body>
+</html>

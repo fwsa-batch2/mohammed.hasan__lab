@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+    array = ['Hasan', 'Prasannah', 'Chitraj', 'Vimal', 'Maha', 'Vaishnavi'];
+    function show(){
+     a = document.getElementById("enter").value;
+     if(array.includes(a) == true){
+       document.write("The element is present");
+     }
+     else{
+       document.write("The element is not present");
+     }
+   }
+    </script>
+  </head>
+  <body>
+    <input id="enter" type="text" placeholder="Enter a name to search">
+    <input type="submit" name="kcs" onclick="show()" value="Submit">
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+# Functions
+
+Function is a set of statements that performs a task or calculates a value. To qualify as a function, it should take some input and return an output
+
+- JavaScript functions are defined with the `function` keyword
+
+- Function parameters are the names listed in the function definition.
+
+#### Syntax
+
+```javascript
+function functionName(parameter1, parameter2) {
+  // code to be executed
+}
+```
+
+- Function arguments are the real values passed to (and received by) the function.
+
+#### Example
+
+```javascript
+function addingTwoNumbers(number1, number2) {
+  const sum = number1 + number2;
+  return sum;
+}
+
+addingTwoNumbers(10, 542);
+// the values 10 and 542 are the arguments that are
+// being passed to the addingTwoNumbers function
+```

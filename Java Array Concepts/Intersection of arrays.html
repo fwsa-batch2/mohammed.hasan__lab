@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      array1 = [1,2,3,9,5,6];
+      array2 = [1,2,3,4,7,8];
+      array3 =[];
+      for(key of array1){
+        for(keys of array2){
+          if(key == keys){
+            array3.push(key);
+
+          }
+
+         }
+      }
+      document.write('[' + array3 + ']');
+
+    </script>
+
+  </body>
+</html>

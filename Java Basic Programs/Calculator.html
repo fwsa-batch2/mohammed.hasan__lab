@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+    body{
+      background: grey;
+    }
+    table{
+      position: absolute;
+      border-spacing:10px;
+      border: 4px;
+      border-style: groove;
+      top:20%;
+      left: 37%;
+      width: 500px;
+      height: 500px;
+      text-align: center;
+      background: black;
+      color: white;
+      border-radius: 20px;
+      font-size: 25px;
+    }
+    input[type="button"]{
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    td,th{
+      padding: 10px;
+      cursor: pointer;
+    }
+    </style>
+
+  </head>
+  <body>
+    <h1 style="text-align:center;color:white;margin-top:5%;">Calculator</h1>
+    <table border="4">
+      <form>
+
+    <tr><th colspan="4"><p id="result" style="font-size:30px;background:white;padding-top:10px;color:black;height:70px;width:100%;"></p></th></tr>
+    <tr>
+      <td><input type="button" class="number" value="1" onclick="number(this);"></td>
+      <td><input type="button" class="number" value="2" onclick="number(this);"></td>
+      <td><input type="button" class="number" value="3" onclick="number(this);"></td>
+      <td><input onclick="number(this)" type="button" value="+"></td>
+    </tr>
+    <tr><td><input type="button" class="number" value="4" onclick="number(this);"></td>
+      <td><input type="button" class="number" value="5" onclick="number(this);"></td>
+      <td><input type="button" class="number" value="6" onclick="number(this);"></td>
+    <td>  <input onclick="number(this)" type="button" value="-"></td>
+    </tr>
+    <tr>
+      <td><input type="button" class="number" value="7" onclick="number(this);"></td>
+      <td><input type="button" class="number" value="8" onclick="number(this);"></td>
+      <td><input type="button" class="number" value="9" onclick="number(this);"></td>
+        <td><input onclick="number(this)" type="button" value="*"></td>
+      </tr>
+    <tr>
+      <td><input onclick="number(this)" type="button" value="C"></td>
+      <td><input onclick="number(this)" type="button" value="0" name="reset" style="width: 40px;height: 40px;font-size: 20px;font-weight: bold;" ></td>
+      <td><input onclick="number(this)" type="button" value="."></td>
+      <td><input onclick="number(this)" type="button" value="="></td>
+    </tr>
+</form>
+  </table>
+
+    <script type="text/javascript">
+  let fnum;
+  let snum;
+  let operator;
+      function number(num){
+
+         if(num.value == '+' || num.value == '-' || num.value == '*' || num.value == '/'){
+          fnum = parseFloat(document.getElementById("result").innerHTML);
+          operator = num.value;
+          document.getElementById("result").innerHTML=" ";
+        }
+
+        else if(num.value == '='){
+          snum = parseFloat(document.getElementById("result").innerHTML);
+          if(operator == '+'){
+            document.getElementById("result").innerHTML = fnum + snum;
+          }
+          else if(operator == '-'){
+            document.getElementById("result").innerHTML = fnum - snum;
+          }
+          else if(operator == '*'){
+            document.getElementById("result").innerHTML = fnum * snum;
+          }
+          else{
+            document.getElementById("result").innerHTML = fnum / snum;
+          }
+        }
+        else if(num.value == 'C'){
+          document.getElementById("result").innerHTML="0";
+        }
+
+
+
+        else{
+        document.getElementById("result").innerHTML+=num.value;
+      }
+
+      }
+
+
+
+    </script>
+  </body>
+</html>

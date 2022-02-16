@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  input[type='number']::-webkit-outer-spin-button,input[type='number']::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+  }
+  </style>
+</head>
+  <body align= 'center'>
+   <div style="background:skyblue;font-size:20px ;width:600px;margin-left:470px;padding:10px;border-radius:10px;margin-top:130px;">
+     <h1> Simple Calculator Using JS</h1><br>
+     <hr color='brown'>
+   Enter first number :  <input id="fnum" value="" style="margin-top:20px;padding:10px;border:blue;border-radius:10px;" type="number" placeholder="Enter number 1"><br>
+   Enter second number :  <input id="snum" value="" style="margin-top:20px;padding:10px;border:blue;border-radius:10px;"type="number" placeholder="Enter number 2"><br>
+   Result : <input id='result' value="" style="margin-top:20px;padding:10px;border:blue;border-radius:10px;"type="number" placeholder="Result will be shown here"><br><br>
+  <input type="button" onclick="add()" value="+" style="padding:5px 13px;border-radius:10px;font-size:20px;margin:10px">
+  <input type="button" onclick="subtract()" value="-" style="padding:5px 13px;border-radius:10px;font-size:20px;margin:10px">
+  <input type="button" onclick="multiply()" value="*" style="padding:5px 13px;border-radius:10px;font-size:20px;margin:10px">
+  <input type="button" onclick="divide()" value="/" style="padding:5px 13px;border-radius:10px;font-size:20px;margin:10px">
+  <input type="button" onclick="mod()" value="%" style="padding:5px 13px;border-radius:10px;font-size:20px;margin:10px">
+ </div>
+  </body>
+  <script>
+  let num1 = document.getElementById("fnum");
+  let num2 =document.getElementById("snum");
+  function add(){
+    console.log(parseFloat(num1.value)+parseFloat(num2.value));
+    document.getElementById('result').value=parseFloat(num1.value)+parseFloat(num2.value);
+  }
+  function subtract(){
+    console.log(parseFloat(num1.value)+parseFloat(num2.value));
+    document.getElementById('result').value=parseFloat(num1.value)-parseFloat(num2.value);
+  }
+  function multiply(){
+    console.log(parseFloat(num1.value)+parseFloat(num2.value));
+    document.getElementById('result').value=parseFloat(num1.value)*parseFloat(num2.value);
+  }
+  function divide(){
+    console.log(parseFloat(num1.value)+parseFloat(num2.value));
+    document.getElementById('result').value=parseFloat(num1.value)/parseFloat(num2.value);
+  }
+  function mod(){
+    console.log(parseFloat(num1.value)+parseFloat(num2.value));
+    document.getElementById('result').value=parseFloat(num1.value)%parseFloat(num2.value);
+  }
+
+
+
+  </script>
+</html>
