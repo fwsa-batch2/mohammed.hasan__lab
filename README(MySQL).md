@@ -101,10 +101,16 @@ mysql> desc signUpDetails;
 +---------------+-------------+------+-----+---------+----------------+
 8 rows in set (0.01 sec)
 
+===========================================================================================================
 
 ### Deleting Constraint(Primary key)
 
 mysql> alter table signUpDetails drop index Password;
+
+(OR)
+
+mysql> alter table signUpDetails drop primary key(col_name);
+
 Query OK, 0 rows affected (0.03 sec)
 Records: 0  Duplicates: 0  Warnings: 0
 
@@ -130,6 +136,7 @@ mysql> show tables;
 | signUpDetails   |
 +-----------------+
 1 row in set (0.01 sec)
+===========================================================================================================
 
 ### Deleting Constraint (2nd way)
 
@@ -151,6 +158,7 @@ mysql> desc signUpDetails;
 | Id            | int         | NO   | PRI | NULL    | auto_increment |
 +---------------+-------------+------+-----+---------+----------------+
 8 rows in set (0.00 sec)
+===========================================================================================================
 
 ### Creating new Table
 
@@ -199,6 +207,7 @@ mysql> select * from signUpDetails;
 | Mohammed   | Hasan     | hasan@gmail.com | 2003-09-19 | Hasan    |    9876543210 | admin |  1 |
 +------------+-----------+-----------------+------------+----------+---------------+-------+----+
 1 row in set (0.00 sec)
+===========================================================================================================
 
 ### Left Join
 
@@ -212,6 +221,8 @@ mysql> select * from signUpDetails left join Logged_In_User on signUpDetails.Id=
 
 mysql> select * from Logged_In_User;
 Empty set (0.00 sec)
+
+===========================================================================================================
 
 ### Altering
 
@@ -229,6 +240,8 @@ mysql> desc Logged_In_User;
 +---------+-------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
+===========================================================================================================
+
 ### Inserting new row
 
 mysql> insert into Logged_In_User values(1,"hasan@gmail.com","admin");
@@ -242,6 +255,7 @@ mysql> select * from Logged_In_User;
 +----+-----------------+-------+
 1 row in set (0.00 sec)
 
+===========================================================================================================
 ### Left Join
 
 mysql> select * from signUpDetails left join Logged_In_User on signUpDetails.Id=Logged_In_User.Id;
@@ -253,6 +267,7 @@ mysql> select * from signUpDetails left join Logged_In_User on signUpDetails.Id=
 1 row in set (0.00 sec)
 <<<<<<< HEAD
 
+===========================================================================================================
 ### Setting Default 
 
 mysql> alter table signUpDetails modify column Role varchar(6) default "user";
@@ -275,4 +290,9 @@ mysql> desc signUpDetails;
 8 rows in set (0.00 sec)
 =======
 mysql
->>>>>>> a4d27b87acc17abbcc6d1f8a9e09f4f63d279b0a
+
+## Tips for Querying :
+
+   * If qn. contains "atleast", then use EXIST constraint
+   * If in qn. comparision is given, use "ALL","ANY","IN","NOT IN"
+   
