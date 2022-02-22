@@ -288,8 +288,35 @@ mysql> desc signUpDetails;
 | Id            | int         | NO   | PRI | NULL    | auto_increment |
 +---------------+-------------+------+-----+---------+----------------+
 8 rows in set (0.00 sec)
-=======
+==========================================================================================================
 mysql
+
+mysql> desc demo;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| st_Id     | int         | NO   |     | NULL    |       |
+| name      | varchar(25) | NO   | PRI | NULL    |       |
+| course_Id | int         | YES  |     | NULL    |       |
+| duration  | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> alter table demo drop constraint name;
+Query OK, 2 rows affected (0.09 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> desc demo;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| st_Id     | int         | NO   |     | NULL    |       |
+| name      | varchar(25) | NO   |     | NULL    |       |
+| course_Id | int         | YES  |     | NULL    |       |
+| duration  | int         | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+=========================================================================================================
 
 ## Tips for Querying :
 
