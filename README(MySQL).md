@@ -318,6 +318,10 @@ mysql> desc demo;
 4 rows in set (0.00 sec)
 =========================================================================================================
 
+## To delete Foreign key from table
+ALTER TABLE artists DROP FOREIGN KEY artistS_ibfk_1; 
+
+========================================================================================================
 ## Tips for Querying :
 
    * If qn. contains "atleast", then use EXIST constraint
