@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style media="screen">
+    .div1 {
+      width: 600px;
+      height: 700px;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 27px;
+      font-weight: bolder;
+      margin-left: 550px;
+      margin-top: 150px;
+      border: 2px solid black;
+    }
+
+    p {
+      width: 200px;
+      height: 100vh;
+    }
+
+    #delete {
+      background-color: red;
+      color: white;
+    }
+
+    #delete:hover {
+      background-color: tomato;
+    }
+
+    input {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: blue;
+      color: white;
+      border: none;
+      margin-left: 20px;
+    }
+
+    #input {
+      width: 350px;
+      text-align: center;
+    }
+
+    #input:focus {
+      outline: none;
+      box-shadow: 0px 0px 10px #1E90FF;
+      transition: box-shadow .5s;
+    }
+
+    button:hover {
+      background: #1E90FF
+    }
+
+    li,
+    ul {
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body align='center'>
+  <form class="div1" onsubmit="showTask()">
+    <input id="input" type="text" name="text" placeholder="Enter a Task" required>
+    <br><br>
+    <button type="submit" name="button"> Add Task </button>
+    <button id="delete" type="button" onclick="deleteTask();">Delete</button>
+    <ul id='result'></ul>
+  </form>
+
+  <script type="text/javascript">
+    let array = [];
+    let getValue = document.getElementById('input').value;
+    let refTask = '';
+    let taskInArray;
+    let Tasks;
+    // localStorage.setItem("New Task",);
+
+    function showTask() {
+
+      event.preventDefault();
+      let getValue = document.getElementById('input').value;
+      array.push(getValue);
+      document.getElementById('input').value = null;
+      document.getElementById('result').innerHTML += "<li>" + getValue + "</li>" + "<br>";
+      console.log(array);
+      Tasks = JSON.stringify(array);
+      localStorage.setItem("New Task", Tasks);
+      // onRefresh();
+
+    }
+    onRefresh();
+
+    function onRefresh() {
+
+      let task = localStorage.getItem("New Task");
+      taskInArray = JSON.parse(task);
+      array = taskInArray;
+      for (let i = 0; i < taskInArray.length; i++) {
+        refTask += "<li>" + taskInArray[i] + "</li>" + "<br>";
+      }
+      document.getElementById("result").innerHTML = refTask;
+    }
+
+    function deleteTask() {
+
+      array.pop();
+      let a = '';
+      for (value of array) {
+        a += "<li>" + value + "</li>" + "<br>";
+      }
+      document.getElementById("result").innerHTML = a;
+      console.log(array);
+      Tasks = JSON.stringify(array);
+      localStorage.setItem("New Task", Tasks);
+
+      // exa();
+    }
+    //TO access 
+    // function exa(){
+    // for(let i = 0 ; i < array.length; i++ ){
+    //   console.log(array[i]);
+    // }
+    // }
+  </script>
+
+</body>
+
+</html>

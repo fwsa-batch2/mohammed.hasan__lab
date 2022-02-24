@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        .x {
+            position: relative;
+            padding: 10px;
+            margin: 100px;
+        }
+        
+        .x::after {
+            content: "";
+            background-color: aqua;
+            position: absolute;
+            text-decoration: none;
+            height: 2px;
+            width: 0px;
+            bottom: 0;
+            left: 40%;
+        }
+        
+        .x:hover::after {
+            left: 0;
+            width: 80px;
+            transition: all .5s;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <a class="x">Loghout</a>
+        <a class="x">Hello</a>
+    </div>
+
+
+</body>
+
+</html>

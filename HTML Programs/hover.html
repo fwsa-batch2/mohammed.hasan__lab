@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 25px;
+        }
+        
+        .container {
+            width: 500px;
+            height: 400px;
+            position: relative;
+            top: 0;
+            left: 35%;
+        }
+        
+        .container img {
+            width: 500px;
+            height: 400px;
+            border-radius: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .container h2 {
+            position: absolute;
+            opacity: 0;
+            transition: all 0.5s;
+        }
+        
+        .container:hover h2 {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- How to keep background using before pseudo element -->
+    <div class="container">
+        <img src="./10dotuniversityapp-ui/assets/images/food.jpeg" alt="">
+        <h2>Hello</h2>
+    </div>
+
+</body>
+
+</html>
