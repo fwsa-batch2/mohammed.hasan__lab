@@ -322,6 +322,76 @@ mysql> desc demo;
 
 ALTER TABLE artists DROP FOREIGN KEY artistS_ibfk_1; 
 
+=========================================================================================================
+
+## To create new table with Same schema of other table
+
+mysql> show tables;
++-----------------+
+| Tables_in_hasan |
++-----------------+
+| All_Courses     |
+| Comment         |
+| Logged_In       |
+| Logged_In_User  |
+| Student_Details |
+| demo            |
+| demo2           |
+| signUpDetails   |
++-----------------+
+8 rows in set (0.00 sec)
+
+mysql> create table (if not exists)<Optional> Logged like Logged_In_User;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> show tables;
++-----------------+
+| Tables_in_hasan |
++-----------------+
+| All_Courses     |
+| Comment         |
+| Logged          |
+| Logged_In       |
+| Logged_In_User  |
+| Student_Details |
+| demo            |
+| demo2           |
+| signUpDetails   |
++-----------------+
+9 rows in set (0.00 sec)
+
+mysql> desc Logged;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| Id      | int         | NO   | MUL | NULL    |       |
+| Mail_Id | varchar(30) | NO   |     | NULL    |       |
+| Role    | varchar(6)  | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from Logged;
+Empty set (0.00 sec)
+
+mysql> insert Logged select * from Logged_In_User;
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from Logged;
++----+-----------------+-------+
+| Id | Mail_Id         | Role  |
++----+-----------------+-------+
+|  1 | hasan@gmail.com | admin |
+|  1 | hasan@gmail.com | admin |
++----+-----------------+-------+
+2 rows in set (0.00 sec)
+
+## Copy data from a table of one db to a table of another db
+
+INSERT INTO database2.table2 SELECT * from database1.table1
+
+
+
 ========================================================================================================
 ## Tips for Querying :
 
