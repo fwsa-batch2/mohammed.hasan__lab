@@ -470,4 +470,10 @@ ERROR 1305 (42000): SAVEPOINT B does not exist
 
    * If qn. contains "atleast", then use EXIST constraint
    * If in qn. comparision is given, use "ALL","ANY","IN","NOT IN"
+
+   * Having clause is used to apply condition to "Group by" Clause
+      eg: select avg(age) from students group by age having avg(age) > 18;
+        Here for each "unique" value of age in "Age" column, average is found for that unique val.
+        and "having" is used to sort the avg(age) column retrieved in output.
+   * 
    
