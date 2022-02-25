@@ -324,6 +324,18 @@ ALTER TABLE artists DROP FOREIGN KEY artistS_ibfk_1;
 
 =========================================================================================================
 
+## Difference between Delete and Truncate
+
+      Although TRUNCATE TABLE is similar to DELETE , it is classified as a DDL statement rather than a DML statement.
+It differs from DELETE in the following ways: Truncate operations drop and re-create the table, which is
+much faster than deleting rows one by one, particularly for large tables.
+
+      The DELETE statement removes rows one at a time and records an entry in the transaction log for each deleted row.
+ TRUNCATE TABLE removes the data by deallocating the data pages used to store the table data and records only 
+ the page deallocations in the transaction log.
+
+===========================================================================================================
+
 ## To create new table with Same schema of other table
 
 mysql> show tables;
