@@ -320,7 +320,7 @@ mysql> desc demo;
 
 ## To delete Foreign key from table
 
-ALTER TABLE artists DROP FOREIGN KEY artistS_ibfk_1; 
+ALTER TABLE artists DROP FOREIGN KEY artistS_ibfk_1;
 
 =========================================================================================================
 
@@ -390,6 +390,67 @@ mysql> select * from Logged;
 
 INSERT INTO database2.table2 SELECT * from database1.table1
 
+=========================================================================================================
+
+## Save point Concept
+
+mysql> set autocommit = 0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete * from Logged where Id=1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* from Logged where Id=1' at line 1
+mysql> delete from Logged where Id=1;
+Query OK, 2 rows affected (0.00 sec)
+
+mysql> select * from Logged;
+Empty set (0.00 sec)
+
+mysql> savepoint A;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into Logged values(2,"hwbdn");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+
+mysql> insert into Logged values(2,"hwbdn",);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+
+mysql> insert into Logged values(2,"hwbdn",user);
+ERROR 1054 (42S22): Unknown column 'user' in 'field list'
+
+mysql> insert into Logged values(2,"hwbdn","user");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> savepoint B;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from Logged;
++----+---------+------+
+| Id | Mail_Id | Role |
++----+---------+------+
+|  2 | hwbdn   | user |
++----+---------+------+
+1 row in set (0.00 sec)
+
+mysql> rollback A;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'A' at line 1
+
+mysql> rollback to A;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from Logged;
+Empty set (0.00 sec)
+
+mysql> rollback to B;
+ERROR 1305 (42000): SAVEPOINT B does not exist
+
+mysql> rollback to A;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> rollback to A;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> rollback to B;
+ERROR 1305 (42000): SAVEPOINT B does not exist
 
 
 ========================================================================================================
