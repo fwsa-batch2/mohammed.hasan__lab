@@ -333,6 +333,16 @@ much faster than deleting rows one by one, particularly for large tables.
       The DELETE statement removes rows one at a time and records an entry in the transaction log for each deleted row.
  TRUNCATE TABLE removes the data by deallocating the data pages used to store the table data and records only 
  the page deallocations in the transaction log.
+      
+      Delete deletes only in db but Truncate deletes the data  completely also the data as in "Recycle bin"
+
+## Use of Start Transaction
+
+      * If you were to add BEGIN TRANSACTION (or BEGIN TRAN) before the statement it automatically makes the transaction
+ explicit and holds a lock on the table until the transaction is either committed or rolled back
+      * 
+A transaction in MySQL starts with the first executable SQL statement and ends when it finds a commit or rolled back
+ either explicitly or implicitly. It explicitly uses COMMIT or ROLLBACK statement and implicitly when a DDL statement is used.
 
 ===========================================================================================================
 
