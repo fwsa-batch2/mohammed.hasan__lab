@@ -485,5 +485,5 @@ ERROR 1305 (42000): SAVEPOINT B does not exist
       eg: select avg(age) from students group by age having avg(age) > 18;
         Here for each "unique" value of age in "Age" column, average is found for that unique val.
         and "having" is used to sort the avg(age) column retrieved in output.
-   * 
+   * Two types of Queries : Independent and Co-related Queries
    
