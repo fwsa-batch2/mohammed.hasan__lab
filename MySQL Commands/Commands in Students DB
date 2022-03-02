@@ -281,17 +281,18 @@ mysql> select * from students inner join student_class on students.id = student_
 
 ### Using Subqueries
 
-mysql> select * from students where exists(select * from student_class where student_id = student_class.student_id);
-+----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
-| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        |
-+----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
-|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanDON7.      | M      | 2003-09-19 | 2022-03-01 12:30:24 |
-|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |
-|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |
-|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |
-|  5 | Sara    | sara@gmail.com    | 9878773489 | saraTheDON7.    | F      | NULL       | 2022-03-01 11:30:24 |
-+----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
-5 rows in set (0.00 sec)
+mysql> select * from students,student_class where students.id=student_class.student_id;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        | id | student_id | class | status   |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanDON7.      | M      | 2003-09-19 | 2022-03-01 12:30:24 |  1 |          1 |     6 | Inactive |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |  2 |          2 |     6 | Active   |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |  3 |          3 |     6 | Inactive |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |  4 |          4 |     7 | Active   |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+4 rows in set (0.00 sec)
+
+
 
 mysql> select * from students,student_class where students.id = student_class.student_id;
 +----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
