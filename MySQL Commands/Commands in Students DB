@@ -1,0 +1,375 @@
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_hasan |
++-----------------+
+| All_Courses     |
+| Comment         |
+| Logged_In_User  |
+| Student_Details |
+| demo            |
+| demo2           |
+| signUpDetails   |
+| student_class   |
+| students        |
++-----------------+
+
+=======================================================================================================
+
+  ##  Feature 1: Student Registration
+
+mysql> insert into students values (1,"Hasan","hasan@gmail.com",9876543210,"HasanTheDON7.","M","2003-09-19","2022-3-01
+12:30:24");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from students;
++----+-------+-----------------+------------+---------------+--------+------------+---------------------+
+| id | name  | email           | mobile_no  | password      | gender | dob        | created_date        |
++----+-------+-----------------+------------+---------------+--------+------------+---------------------+
+|  1 | Hasan | hasan@gmail.com | 9876543210 | HasanTheDON7. | M      | 2003-09-19 | 2022-03-01 12:30:24 |
++----+-------+-----------------+------------+---------------+--------+------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> insert into students values (2,"Adhil","adhil@gmail.com",9876573465,"AdhilTheDON7.","M","2003-03-21","2022-3-01
+11:30:24");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into students values (3,"Humaira","humaira@gmail.com",9878773465,"humairaTheDON7.","F","2004-03-21","2022-3-03 11:
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into students values (4,"Sabura","sabura@gmail.com",9878773472,"saburaTheDON7.","F","2004-09-21","2022-3-01 11:
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from students;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanTheDON7.   | M      | 2003-09-19 | 2022-03-01 12:30:24 |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from students;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanTheDON7.   | M      | 2003-09-19 | 2022-03-01 12:30:24 |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+4 rows in set (0.00 sec)
+
+
+===========================================================================================================
+
+  ##  Feature 2: List All Students
+
+mysql> select * from students;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanTheDON7.   | M      | 2003-09-19 | 2022-03-01 12:30:24 |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+4 rows in set (0.00 sec)
+===========================================================================================================
+    ## Feature 3: Login with email and password
+
+mysql> select * from students where email="hasan@gmail.com" and password="HasanDON7.";
++----+-------+-----------------+------------+------------+--------+------------+---------------------+
+| id | name  | email           | mobile_no  | password   | gender | dob        | created_date        |
++----+-------+-----------------+------------+------------+--------+------------+---------------------+
+|  1 | Hasan | hasan@gmail.com | 9876543210 | HasanDON7. | M      | 2003-09-19 | 2022-03-01 12:30:24 |
++----+-------+-----------------+------------+------------+--------+------------+---------------------+
+1 row in set (0.00 sec)
+
+==============================================================================================================
+
+##     Feature 4: Update Password
+
+mysql> update students set password="HasanDON7." where id=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from students;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanDON7.      | M      | 2003-09-19 | 2022-03-01 12:30:24 |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+4 rows in set (0.00 sec)
+
+==================================================================================================================
+##     Feature 5: Enroll Student into Class
+
+
+
+mysql> desc student_class;
++------------+-------------+------+-----+---------+----------------+
+| Field      | Type        | Null | Key | Default | Extra          |
++------------+-------------+------+-----+---------+----------------+
+| id         | int         | NO   | PRI | NULL    | auto_increment |
+| student_id | int         | NO   | MUL | NULL    |                |
+| class      | int         | NO   |     | NULL    |                |
+| status     | varchar(20) | NO   |     | NULL    |                |
++------------+-------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+mysql> insert into student_class values(1,1,5,"Active");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into student_class values(2,2,6,"Active");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into student_class values(3,3,6,"Inactive");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student_class;
++----+------------+-------+----------+
+| id | student_id | class | status   |
++----+------------+-------+----------+
+|  1 |          1 |     5 | Active   |
+|  2 |          2 |     6 | Active   |
+|  3 |          3 |     6 | Inactive |
++----+------------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> insert into student_class values(4,4,7,"Active");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from student_class;
++----+------------+-------+----------+
+| id | student_id | class | status   |
++----+------------+-------+----------+
+|  1 |          1 |     5 | Active   |
+|  2 |          2 |     6 | Active   |
+|  3 |          3 |     6 | Inactive |
+|  4 |          4 |     7 | Active   |
++----+------------+-------+----------+
+4 rows in set (0.00 sec)
+
+============================================================================================================
+
+##  Feature 6: Find Students who are enrolled in the given class
+    For 6th question: Find Students who are studying in 5th standard.
+
+mysql> select name from student_class class natural join students S where class.class=5;
++-------+
+| name  |
++-------+
+| Hasan |
++-------+
+1 row in set (0.00 sec)
+
+=============================================================================================================
+
+##    Feature 7: Update Student Class information #Update student from 5th standard to 6th standard.
+
+    mysql> update student_class set class=6 where class =5;
+    Query OK, 1 row affected (0.01 sec)
+    Rows matched: 1  Changed: 1  Warnings: 0
+
+    mysql> select * from student_class;
+    +----+------------+-------+----------+
+    | id | student_id | class | status   |
+    +----+------------+-------+----------+
+    |  1 |          1 |     6 | Active   |
+    |  2 |          2 |     6 | Active   |
+    |  3 |          3 |     6 | Inactive |
+    |  4 |          4 |     7 | Active   |
+    +----+------------+-------+----------+
+    4 rows in set (0.01 sec)
+
+==================================================================================================================
+
+##     Feature 8: Student withdrawn from a Class
+
+mysql> update student_class set status="Inactive" where student_id=1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from student_class;
++----+------------+-------+----------+
+| id | student_id | class | status   |
++----+------------+-------+----------+
+|  1 |          1 |     6 | Inactive |
+|  2 |          2 |     6 | Active   |
+|  3 |          3 |     6 | Inactive |
+|  4 |          4 |     7 | Active   |
++----+------------+-------+----------+
+4 rows in set (0.00 sec)
+
+=================================================================================================================
+
+##     Feature 9: Find student details who have not updated their Date Of Birth #
+
+mysql> select * from students where dob is NULL;
++----+------+----------------+------------+--------------+--------+------+---------------------+
+| id | name | email          | mobile_no  | password     | gender | dob  | created_date        |
++----+------+----------------+------------+--------------+--------+------+---------------------+
+|  5 | Sara | sara@gmail.com | 9878773489 | saraTheDON7. | F      | NULL | 2022-03-01 11:30:24 |
++----+------+----------------+------------+--------------+--------+------+---------------------+
+1 row in set (0.00 sec)
+
+=================================================================================================================
+
+##     Feature 10: Find Total no of students actively studying in this school
+
+mysql> select * from students natural join student_class class where class.status="active";
++----+--------+------------------+------------+----------------+--------+------------+---------------------+------------+-------+--------+
+| id | name   | email            | mobile_no  | password       | gender | dob        | created_date        | student_id | class | status |
++----+--------+------------------+------------+----------------+--------+------------+---------------------+------------+-------+--------+
+|  2 | Adhil  | adhil@gmail.com  | 9876573465 | AdhilTheDON7.  | M      | 2003-03-21 | 2022-03-01 11:30:24 |          2 |     6 | Active |
+|  4 | Sabura | sabura@gmail.com | 9878773472 | saburaTheDON7. | F      | 2004-09-21 | 2022-03-01 11:30:24 |          4 |     7 | Active |
++----+--------+------------------+------------+----------------+--------+------------+---------------------+------------+-------+--------+
+2 rows in set (0.00 sec)
+
+================================================================================================================
+
+##     Feature 11: Find Total no of students actively studying in each class
+
+mysql> select count(*) as Number_Of_Students,class from student_class where status="Active" group by class;
++--------------------+-------+
+| Number_Of_Students | class |
++--------------------+-------+
+|                  1 |     6 |
+|                  1 |     7 |
++--------------------+-------+
+2 rows in set (0.00 sec)
+
+================================================================================================================
+
+##     Feature 12: Find Total no of students actively studying each class which has less than 5 students.
+
+mysql> select count(*),class from student_class where status="Active" group by class having count(*)<5;
++----------+-------+
+| count(*) | class |
++----------+-------+
+|        1 |     6 |
+|        1 |     7 |
++----------+-------+
+2 rows in set (0.00 sec)
+
+================================================================================================================
+
+## Feature 13: Display student and class details Using Joins
+
+    * Inner Join
+    * Using Subqueries (Scalar SubQuery)
+
+### Using Inner join
+
+mysql> select * from students inner join student_class on students.id = student_class.student_id;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        | id | student_id | class | status   |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanDON7.      | M      | 2003-09-19 | 2022-03-01 12:30:24 |  1 |          1 |     6 | Inactive |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |  2 |          2 |     6 | Active   |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |  3 |          3 |     6 | Inactive |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |  4 |          4 |     7 | Active   |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+4 rows in set (0.00 sec)
+
+### Using Subqueries
+
+mysql> select * from students where exists(select * from student_class where student_id = student_class.student_id);
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanDON7.      | M      | 2003-09-19 | 2022-03-01 12:30:24 |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |
+|  5 | Sara    | sara@gmail.com    | 9878773489 | saraTheDON7.    | F      | NULL       | 2022-03-01 11:30:24 |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from students,student_class where students.id = student_class.student_id;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        | id | student_id | class | status   |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanDON7.      | M      | 2003-09-19 | 2022-03-01 12:30:24 |  1 |          1 |     6 | Inactive |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |  2 |          2 |     6 | Active   |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |  3 |          3 |     6 | Inactive |
+|  4 | Sabura  | sabura@gmail.com  | 9878773472 | saburaTheDON7.  | F      | 2004-09-21 | 2022-03-01 11:30:24 |  4 |          4 |     7 | Active   |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
+4 rows in set (0.00 sec)
+
+=====================================================================================================================
+##     Feature 14: Display Student Details for the given input class Class : 6th Standard Using Joins
+
+mysql> select * from students natural join student_class where class=6;
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+------------+-------+----------+
+| id | name    | email             | mobile_no  | password        | gender | dob        | created_date        | student_id | class | status   |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+------------+-------+----------+
+|  1 | Hasan   | hasan@gmail.com   | 9876543210 | HasanDON7.      | M      | 2003-09-19 | 2022-03-01 12:30:24 |          1 |     6 | Inactive |
+|  2 | Adhil   | adhil@gmail.com   | 9876573465 | AdhilTheDON7.   | M      | 2003-03-21 | 2022-03-01 11:30:24 |          2 |     6 | Active   |
+|  3 | Humaira | humaira@gmail.com | 9878773465 | humairaTheDON7. | F      | 2004-03-21 | 2022-03-03 11:30:24 |          3 |     6 | Inactive |
++----+---------+-------------------+------------+-----------------+--------+------------+---------------------+------------+-------+----------+
+3 rows in set (0.01 sec)
+
+==================================================================================================================
+
+## Feature 15: Find Class for the given student email id Email: n@gmail.com    
+    
+  ### Using Join
+
+  mysql> select class from student_class inner join students on students.email="hasan@gmail.com" and students.id=student_class.student_id;
+
+  +-------+
+  | class |
+  +-------+
+  |     6 |
+  +-------+
+  1 row in set (0.00 sec)
+
+  ### Using Subquery ( single row subquery )
+
+  mysql> select class from student_class where student_id=(select id from students where email="hasan@gmail.com"); 
++-------+
+| class |
++-------+
+|     6 |
++-------+
+1 row in set (0.00 sec)
+
+
+==================================================================================================================
+
+##     Feature 16: Find Students who has not enrolled in a class Using Subquery ( multiple row subquery )
+
+mysql> select * from students where not exists(select student_id from student_class c where c.student_id=students.id);
++----+------+----------------+------------+--------------+--------+------+---------------------+
+| id | name | email          | mobile_no  | password     | gender | dob  | created_date        |
++----+------+----------------+------------+--------------+--------+------+---------------------+
+|  5 | Sara | sara@gmail.com | 9878773489 | saraTheDON7. | F      | NULL | 2022-03-01 11:30:24 |
++----+------+----------------+------------+--------------+--------+------+---------------------+
+1 row in set (0.00 sec)
+
+=================================================================================================================
+
+##     Feature 17: Display all students name with class - include both enrolled and not enrolled Using Joins ( Left outer join)
+
+mysql> select s.name,c.class from students s left join student_class c on c.student_id=s.id;
++---------+-------+
+| name    | class |
++---------+-------+
+| Hasan   |     6 |
+| Adhil   |     6 |
+| Humaira |     6 |
+| Sabura  |     7 |
+| Sara    |  NULL |
++---------+-------+
+5 rows in set (0.00 sec)
+
+
+
