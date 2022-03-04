@@ -93,7 +93,8 @@ mysql> select * from students where email="hasan@gmail.com" and password="HasanD
 
 ##     Feature 4: Update Password
 
-mysql> update students set password="HasanDON7." where id=1;
+mysql> update students set password="HasanDON7." where email="hasan@gmail.com" and mobile_no=
+9876543210;
 Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
@@ -269,6 +270,7 @@ mysql> select count(*),class from student_class where status="Active" group by c
 ### Using Inner join
 
 mysql> select * from students inner join student_class on students.id = student_class.student_id;
+
 +----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
 | id | name    | email             | mobile_no  | password        | gender | dob        | created_date        | id | student_id | class | status   |
 +----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
@@ -282,6 +284,7 @@ mysql> select * from students inner join student_class on students.id = student_
 ### Using Subqueries
 
 mysql> select * from students,student_class where students.id=student_class.student_id;
+
 +----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
 | id | name    | email             | mobile_no  | password        | gender | dob        | created_date        | id | student_id | class | status   |
 +----+---------+-------------------+------------+-----------------+--------+------------+---------------------+----+------------+-------+----------+
