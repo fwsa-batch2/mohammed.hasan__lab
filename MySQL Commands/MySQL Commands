@@ -418,6 +418,12 @@ INSERT INTO database2.table2 SELECT * from database1.table1
 
 SELECT * FROM table1 USE INDEX (col1_index,col2_index) (optional) WHERE col1=1 AND col2=2 AND col3=3;
 
+## Tip :
+      1. If a column is assigned a clustered or unique index, then it orders all rows in ascending order. 
+Even after deleting the index(clustered or unique), the ordered table will only exist
+      
+      2. Creating unique index also, shows that column as primary key, when described. 
+
 =========================================================================================================
 
 ## Save point Concept
