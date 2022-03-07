@@ -485,9 +485,6 @@ Empty set (0.00 sec)
 mysql> savepoint A;
 Query OK, 0 rows affected (0.00 sec)
 
-mysql> insert into Logged values(2,"hwbdn");
-ERROR 1136 (21S01): Column count doesn't match value count at row 1
-
 mysql> insert into Logged values(2,"hwbdn",);
 ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
 
@@ -544,7 +541,7 @@ So, I can set a DATETIME column to a value such as '2019-01-16 12:15:00' to indi
       A TIMESTAMP column on the other hand takes the '2019-01-16 12:15:00' value you are setting into it
 and interprets it in the current session time zone to compute an internal representation relative
 to 1/1/1970 00:00:00 UTC. When the column is displayed, it will be converted back for display 
-based on whatever the current session time zone is. It's a useful fiction to think of a TIMESTAMP
+based on whatever the current session time zone is. It''s a useful fiction to think of a TIMESTAMP
 as taking the value you are setting and converting it from the current session time zone to UTC 
 for storing and then converting it back to the current session time zone for displaying.
 
@@ -566,7 +563,7 @@ You will, of course, always have to be concerned that the current session time z
 
 ## Tips for Querying :
 
-   * If qn. contains "atleast", then use EXIST constraint
+   * If qn. contains "atleast", then use EXIST constraint (i.e used to check whether a row exists or not)
    * If in qn. comparision is given, use "ALL","ANY","IN","NOT IN"
 
    * Having clause is used to apply condition to "Group by" Clause
