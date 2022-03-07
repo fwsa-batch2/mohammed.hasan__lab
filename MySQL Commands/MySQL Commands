@@ -105,6 +105,8 @@ mysql> desc signUpDetails;
 
 ### Deleting Constraint(Primary key)
 
+### Delete auto_increment if, primary key does''nt gets dropped using this query
+
 mysql> alter table signUpDetails drop index Password;
 
 (OR)
@@ -136,6 +138,8 @@ mysql> show tables;
 | signUpDetails   |
 +-----------------+
 1 row in set (0.01 sec)
+
+
 ===========================================================================================================
 
 ### Deleting Constraint (2nd way)
@@ -338,11 +342,10 @@ much faster than deleting rows one by one, particularly for large tables.
 
 ## Use of Start Transaction
 
-      * If you were to add BEGIN TRANSACTION (or BEGIN TRAN) before the statement it automatically makes the transaction
+      * If you were to add BEGIN TRANSACTION (or Start TRAN) before the statement, it automatically makes the transaction
  explicit and holds a lock on the table until the transaction is either committed or rolled back
-      * 
-A transaction in MySQL starts with the first executable SQL statement and ends when it finds a commit or rolled back
- either explicitly or implicitly. It explicitly uses COMMIT or ROLLBACK statement and implicitly when a DDL statement is used.
+      * A transaction in MySQL starts with the first executable SQL statement and ends when it finds a commit or rolled back
+ either explicitly or implicitly. It explicitly uses COMMIT or ROLLBACK statement and implicitly when a DDL(i.e create,alter..etc) statement is used.
 
 ===========================================================================================================
 
@@ -395,7 +398,7 @@ mysql> desc Logged;
 mysql> select * from Logged;
 Empty set (0.00 sec)
 
-mysql> insert Logged select * from Logged_In_User;
+mysql> insert into Logged select * from Logged_In_User;
 Query OK, 2 rows affected (0.01 sec)
 Records: 2  Duplicates: 0  Warnings: 0
 
@@ -407,10 +410,50 @@ mysql> select * from Logged;
 |  1 | hasan@gmail.com | admin |
 +----+-----------------+-------+
 2 rows in set (0.00 sec)
-
+===========================================================================================================
 ## Copy data from a table of one db to a table of another db
 
-INSERT INTO database2.table2 SELECT * from database1.table1
+--   Works perfectly
+
+INSERT INTO database2.table2 SELECT * from database1.table1 
+
+mysql> show tables;
++-----------------------------+
+| Tables_in_TenDotsUniversity |
++-----------------------------+
+| signUpDetails               |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from signUpDetails;
+Empty set (0.01 sec)
+
+mysql> insert into TenDotsUniversity.signUpDetails select * from hasan.signUpDetails;
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select * from signUpDetails;
++------------+-----------+-----------------+------------+----------+---------------+-------+----+
+| First_Name | Last_Name | Mail            | DOB        | Password | Mobile_Number | Role  | Id |
++------------+-----------+-----------------+------------+----------+---------------+-------+----+
+| Mohammed   | Hasan     | hasan@gmail.com | 2003-09-19 | Hasan    |    9876543210 | admin |  1 |
++------------+-----------+-----------------+------------+----------+---------------+-------+----+
+1 row in set (0.00 sec)
+
+mysql> use hasan;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select * from signUpDetails;
++------------+-----------+-----------------+------------+----------+---------------+-------+----+
+| First_Name | Last_Name | Mail            | DOB        | Password | Mobile_Number | Role  | Id |
++------------+-----------+-----------------+------------+----------+---------------+-------+----+
+| Mohammed   | Hasan     | hasan@gmail.com | 2003-09-19 | Hasan    |    9876543210 | admin |  1 |
++------------+-----------+-----------------+------------+----------+---------------+-------+----+
+1 row in set (0.00 sec)
+
+
 
 =========================================================================================================
 
