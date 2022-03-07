@@ -414,6 +414,12 @@ INSERT INTO database2.table2 SELECT * from database1.table1
 
 =========================================================================================================
 
+## Using index   
+
+SELECT * FROM table1 USE INDEX (col1_index,col2_index) (optional) WHERE col1=1 AND col2=2 AND col3=3;
+
+=========================================================================================================
+
 ## Save point Concept
 
 mysql> set autocommit = 0;
