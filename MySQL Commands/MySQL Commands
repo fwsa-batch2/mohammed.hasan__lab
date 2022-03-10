@@ -529,6 +529,49 @@ ERROR 1305 (42000): SAVEPOINT B does not exist
 
 ========================================================================================================
 
+mysql> show full tables where table_type!="view";
++-----------------------------+------------+
+| Tables_in_tendotsuniversity | Table_type |
++-----------------------------+------------+
+| batch                       | BASE TABLE |
+| batch_users                 | BASE TABLE |
+| courses                     | BASE TABLE |
+| inserting                   | VIEW       |
+| tname                       | BASE TABLE |
+| users                       | BASE TABLE |
++-----------------------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> desc inserting;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   |     | 0       |       |
+| name  | varchar(20) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select * from inserting;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | Hasan |
++----+-------+
+1 row in set (0.01 sec)
+
+mysql> create or replace view inserting as select id from batch;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select * from inserting;
++----+
+| id |
++----+
+|  1 |
++----+
+1 row in set (0.00 sec)
+
+========================================================================================================
+
 ## Difference between DATETIME AND TIMESTAMP
 
       A DATETIME stores a literal value of a date and time with no reference to any particular timezone. 
