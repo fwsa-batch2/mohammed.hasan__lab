@@ -10,7 +10,7 @@ select * from inserting where last_name like '[HA]%';
 create or replace view inserting as select * from batch;
 
 
-	CREATE TABLE course_details (
+		CREATE TABLE course_details (
 		course_name ENUM('Mechanical Engineering', 'Electrical and Electronics Engineering', 'Electronics and Communication Engineering', 'Computer Science Engineering', 'Information Technology', 'Chemical Engineering', 'Bio-medical Engineering', 'Civil Engineering', 'Bachelor of Arts', 'Bachelor of Design', 'Bachelor of Business Administration', 'Bachelor of Management Science', 'Bachelor of Hotel Management', 'B.A Psychology(Hons)'),
 		caption VARCHAR(40),
 		details LONGTEXT NOT NULL,
@@ -59,9 +59,9 @@ insert into teacher_details values("Sumitha", "Computer Science Engineering");
 	 password varchar(20) not null check(length(password)>12),
 	 role char(6) not null default ("user")
 	 );
-	alter table sign_up_details add check(length(mobile_number) = 10 and dob < year(curdate()));
+	alter table sign_up_details add check(length(mobile_number) = 10 and d_o_b < "2003-12-01");
     alter table sign_up_details add column notification enum("on","off") not null;
-	desc all_courses;
+	desc sign_up_details;
 	select * from sign_up_details;
 	insert into sign_up_details values(1, "hasan@gmail.com", 9876544510, "Mohammed", "Hasan","2002:5:25","jebfsfdnDohwerN.","User");
 
@@ -86,7 +86,7 @@ drop table liked_people;
 
 	CREATE TABLE likes (
       commented_id varchar(30) not null,
-      liked_id INT,
+      liked_id INT unique,
     FOREIGN KEY (liked_id)
         REFERENCES sign_up_details (id)
         ON UPDATE CASCADE ON DELETE CASCADE,
@@ -111,6 +111,7 @@ drop table liked_people;
         AND cut_off_10 > 40
         AND cut_off_12 > 40)
 );
+alter table student_details add column status enum("paid","unpaid");
 insert into student_details values(1,"Hasan","hasan@gmail.com","2003:9:9",50,60,"Mechanical Engineering",9876543210,"Thiruvanmiyur","Chennai");
 select * from student_details;
  
