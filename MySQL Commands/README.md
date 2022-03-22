@@ -150,4 +150,4 @@ alter table student_details add column status enum("paid","unpaid");
 insert into student_details values(1,"Hasan","hasan@gmail.com","2003:9:9",50,60,"Mechanical Engineering",9876543210,"Thiruvanmiyur","Chennai");
 select * from student_details;
 ```
- 
+  
