@@ -1,3 +1,5 @@
+# &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```Ten Dots University```
+<hr>
 ```sql
 show databases;
 ```
@@ -22,7 +24,7 @@ create or replace view inserting as select * from batch;
 ```
 ```sql
 CREATE TABLE course_details (
-course_name ENUM('Mechanical Engineering', 'Electrical and Electronics Engineering', 'Electronics and Communication Engineering', 'Computer Science Engineering', 'Information Technology', 'Chemical Engineering', 'Bio-medical Engineering', 'Civil Engineering', 'Bachelor of Arts', 'Bachelor of Design', 'Bachelor of Business Administration', 'Bachelor of Management Science', 'Bachelor of Hotel Management', 'B.A Psychology(Hons)'),
+course_name ENUM('Mechaical Engineering', 'Electrical and Electronics Engineering', 'Electronics and Communication Engineering', 'Computer Science Engineering', 'Information Technology', 'Chemical Engineering', 'Bio-medical Engineering', 'Civil Engineering', 'Bachelor of Arts', 'Bachelor of Design', 'Bachelor of Business Administration', 'Bachelor of Management Science', 'Bachelor of Hotel Management', 'B.A Psychology(Hons)'),
 caption VARCHAR(40),
 details LONGTEXT NOT NULL,
 image BLOB,
