@@ -1,7 +1,9 @@
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;```Ten Dots University```
+
 <hr>
+
 ```sql
 show databases;
 ```
