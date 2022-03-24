@@ -155,6 +155,12 @@ insert into student_details values(1,"Hasan","hasan@gmail.com","2003:9:9",50,60,
 select * from student_details;
 ```
 
+<hr>
+
 ![Screenshot (38)](https://user-images.githubusercontent.com/93571027/159881376-d7a1026f-722c-41bb-b8de-0b1dbe374c2b.png)
+
+<hr>
+
+![Screenshot (39)](https://user-images.githubusercontent.com/93571027/159881564-da83cf12-4ffd-4cad-adf4-3bf0d2c06b7b.png)
 
 
