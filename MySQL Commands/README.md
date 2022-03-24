@@ -154,4 +154,10 @@ alter table student_details add column status enum("paid","unpaid");
 insert into student_details values(1,"Hasan","hasan@gmail.com","2003:9:9",50,60,"Mechanical Engineering",9876543210,"Thiruvanmiyur","Chennai");
 select * from student_details;
 ```
+<hr>
+![Screenshot (38)](https://user-images.githubusercontent.com/93571027/159880954-b3a9e992-312a-45d2-aa60-ecab669cb6d1.png)
+<hr>
+![Screenshot (39)](https://user-images.githubusercontent.com/93571027/159881008-b8e480ec-2abc-4204-8cc1-856c41abdef1.png)
+
+
 
