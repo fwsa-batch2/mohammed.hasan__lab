@@ -5,19 +5,9 @@ import java.util.*;
 
 // import java.lang.System.Logger;
 public class Main {
-
     public static void main(String[] name) {
-//        LocalDateTime date = LocalDateTime.now();   Since now() is static we can call directly
-        System.out.println(LocalDateTime.now());
-
-//        Formatting a date according to our wish
-        DateTimeFormatter dateObj = DateTimeFormatter.ofPattern("dd E,MMMM yyyy hh-mm");
-        // If 3 'M' is given for month then displays shorter
-        System.out.println( LocalDateTime.now().format(dateObj));
-
         System.out.println("first name " + name[0].toLowerCase());
         System.out.println("second name " + name[1].toUpperCase());
-
 
         //      Calling classes in other files but same package
 //        Sub subObj = new Sub();
@@ -32,12 +22,22 @@ public class Main {
 //        Hasan h = new Hasan();
 //        h.twoDimenArray();
 //        returnName();
+//        dateTimeConcept();
 //         System.out.println("Sum is " + (a+b));
 //         Main h = new Main();
         // arrayTraversing();
 //        fhrnToCelsius();
 //        addingAllDigits();
 
+    }
+    static void dateTimeConcept(){
+        //        LocalDateTime date = LocalDateTime.now();   Since now() is static we can call directly
+        System.out.println(LocalDateTime.now());
+
+//        Formatting a date according to our wish
+        DateTimeFormatter dateObj = DateTimeFormatter.ofPattern("dd E,MMMM yyyy hh-mm");
+        // If 3 'M' is given for month then displays shorter
+        System.out.println( LocalDateTime.now().format(dateObj));
     }
     static void addingAllDigits() {
         Scanner input = new Scanner(System.in);
@@ -126,7 +126,7 @@ class Hasan{
         HashMap <String, String> courses = new HashMap <String,String>();
         courses.put("name", "Mechanical");
         courses.put("name", "Computer");
-        System.out.println(courses.get("name"));        // Displays last added element
+        System.out.println(courses.get("name"));        // Displays last added element if key is same
 for(String i : courses.keySet()){
     System.out.println(i);      // Displays only 1 element
 }

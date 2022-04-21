@@ -2,27 +2,33 @@ package tendotsuniv.in;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
 public class Sub {
+    protected int hasan = 0;
     public static void main(String[] args){
-        System.out.println("Sub class");
 //        patternConcept();
-//        dum ob = new dum();
 //        dum.main();
+//        listConcepts();
     }
     static void patternConcept(){
         Pattern pattern = Pattern.compile("don", Pattern.CASE_INSENSITIVE);
         Matcher match = pattern.matcher("Hasan is the Don");
         System.out.println(match.find());
     }
-
+    static void listConcepts(){
+        List <String> lst1 = new ArrayList<>();
+        lst1.add("Humaira");
+        lst1.add("Hasn");
+        lst1.add("Don");
+        List <String> lst2 = new ArrayList<>();
+        lst2.addAll(lst1);   // addAll is used to all other list elements
+        System.out.println(lst2);
+    }
 }
 
 // Manipulation of Array
@@ -69,6 +75,7 @@ class Array{
         count--;
     }
 }
+
 // Assignments given by Mam
 class Assignments{
     static Scanner input = new Scanner(System.in);
@@ -82,10 +89,11 @@ class Assignments{
 //        reverseAnything();
 //        perfectNumber();
 //        strongNumber();
+//        sortingArray();
     }
     static void strongNumber(){
         System.out.println("Enter a number to check whether it is Strong or not : ");
-        int num = input.nextInt(),fact = 1,result = 0, temp = num;
+        int num = input.nextInt(),result = 0, temp = num;
         int len = Integer.toString(num).length();
         int[] arr = new int[len];
         for (int i = 0; i < len; i++) {
@@ -93,11 +101,11 @@ class Assignments{
             temp/=10;
         }
         for (int i : arr) {
+            int fact = 1;
             for(; i > 0; i--){
                 fact *= i;
             }
             result+=fact;
-            fact = 1;
         }
         String output  = result == num ? "is a Strong number" : "is not a Strong number" ;
         System.out.println("The given number " + output);
@@ -192,7 +200,76 @@ class Assignments{
         int result = IntStream.of(numbers).sum();
         System.out.println("Average of given numbers is: " +(float)result/count);
     }
+    static void sortingArray(){
+        System.out.println("Enter the number of elements in array : ");
+        int len = input.nextInt(),i = 0,temp = 0;
+        int[] arr = new int[len];
+        System.out.println("Enter the elements of array : ");
+        for(i = 0 ; i < len; i++)
+            arr[i] = input.nextInt();
+        for(int el = 0; el < arr.length; el++){
+            for(int innerEl = el+1; innerEl < arr.length; innerEl++){
+                if(arr[el] > arr[innerEl]){
+                    temp = arr[el];
+                    arr[el] = arr[innerEl];
+                    arr[innerEl] = temp;
+                }
+            }
+        }
+        System.out.println("Sorted array : " + Arrays.toString(arr));
+    }
 }
+
+//  Constructor Concept
+class CreateObject {
+    int a;
+    CreateObject(int in){
+        a = in;
+        System.out.println(a);
+    }
+}
+class Constructor {
+    public static void main(String[] args) {
+        CreateObject ob = new CreateObject(2);
+        System.out.println(ob.a);
+    }
+}
+
+// Simple Calculator
+class Calculator{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter a number : ");
+        int num1 = input.nextInt(),result = 0;
+        System.out.print("Enter the operator you need to perform ( + , - , * , / , % , ^ ) : ");
+        String operator = input.next();
+        System.out.print("Enter second number : ");
+        int num2 = input.nextInt();
+        switch (operator){
+            case "+":
+                result = num1 + num2;
+                break;
+            case "-":
+                result = num1 - num2;
+                break;
+            case "*":
+                result = num1 * num2;
+                break;
+            case "/":
+                result = num1 / num2;
+                break;
+            case "%":
+                result = num1 % num2;
+            case "^":
+                result = (int) Math.pow(num1,num2);
+                break;
+            default:
+                System.out.println("Please enter proper operator ..!");
+        }
+        System.out.println("Result : " + result);
+    }
+}
+
 
 // Thread Concept
 class dum extends Thread  {
@@ -209,7 +286,9 @@ class dum extends Thread  {
         amount++;
         System.out.println("Main: " + amount);
     }
-    public void run() {         // Is automatically invoked while calling start() method
+    public void run() {         // Is automatically invoked while calling start() method.
+        // But if we call run(), it executes only that
+
 //      System.out.println("Run" + amount);
         amount++;
         try {
