@@ -1,7 +1,8 @@
 package tendotsuniv.in;
-
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -9,25 +10,72 @@ import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
 public class Sub {
-    protected int hasan = 0;
-    public static void main(String[] args){
+    protected static int hasan = 0;
+    // static gets called first before main()
+    static {
+        System.out.println("Hi Hasan");
+    }
+    public static void main(String[] args) throws Exception{
 //        patternConcept();
 //        dum.main();
 //        listConcepts();
+//        linkedHashSet();
+//        linkedHashMap();
+//        inputStreamReader();
     }
     static void patternConcept(){
         Pattern pattern = Pattern.compile("don", Pattern.CASE_INSENSITIVE);
         Matcher match = pattern.matcher("Hasan is the Don");
         System.out.println(match.find());
+        System.out.println(Pattern.matches("[amn]", "aaa"));  //false (m and a comes more than once)
+        System.out.println(Pattern.matches("[amn]+", "aaa"));  //true (a comes more than one time)
+        //  Seems like both + and * are same
+        System.out.println(Pattern.matches("[amn]*", "ammmnabbb"));//true (a or m or n may come zero or more times)
+        System.out.println(Pattern.matches("[987][0-9]{9}","9876543210"));
+        System.out.println(Pattern.matches("[987]\\d{9}","9876543210"));
+
     }
     static void listConcepts(){
-        List <String> lst1 = new ArrayList<>();
+        ArrayList<String> lst1 = new ArrayList();
         lst1.add("Humaira");
-        lst1.add("Hasn");
-        lst1.add("Don");
-        List <String> lst2 = new ArrayList<>();
-        lst2.addAll(lst1);   // addAll is used to all other list elements
-        System.out.println(lst2);
+        List <String> lst2 = new ArrayList<String>();
+        lst2.addAll(lst1);       // addAll is used to all other list elements
+        Collections.addAll(lst1,"Hasan","Don");
+        System.out.println(lst1);
+        lst1.forEach((el) -> System.out.println(el));
+    }
+    static void linkedHashSet(){
+        LinkedHashSet <String> linkedHashSet = new LinkedHashSet<>();
+        linkedHashSet.add("A");
+        linkedHashSet.add("F");
+        linkedHashSet.add("D");
+        System.out.println(linkedHashSet);      // Sorts  based on insertion not automatically sorts.
+        // If need to sort use Collections.sort() like below
+        ArrayList arr = new ArrayList<>(linkedHashSet);
+        Collections.sort(arr);
+    }
+    static void linkedHashMap(){
+        Map<Integer,String> linkedHashMap = new LinkedHashMap();
+        linkedHashMap.put(1,"Hasan");
+        linkedHashMap.put(2,"Don");
+        linkedHashMap.put(3,"Humaira");
+        linkedHashMap.put(4,"Adhil");
+        System.out.println("Key set " + linkedHashMap.keySet());
+        System.out.println("Value set " + linkedHashMap.values());
+        System.out.println(linkedHashMap);
+        linkedHashMap.remove(3);
+
+        for(Map.Entry el:linkedHashMap.entrySet()){
+            System.out.println("Key Set : "+el.getKey() + "  Values Set : " + el.getValue());
+        }
+    }
+    static void inputStreamReader() throws Exception{
+            InputStreamReader in = new InputStreamReader(System.in);
+            BufferedReader input = new BufferedReader(in);
+            System.out.println("Enter your name : ");
+            System.out.println("Hello " + input.readLine()); // Here input.readLine() executes first before printing
+            in.close();
+            input.close();
     }
 }
 
@@ -79,6 +127,10 @@ class Array{
 // Assignments given by Mam
 class Assignments{
     static Scanner input = new Scanner(System.in);
+    // Can declare main like this
+    static {
+//        sortingArray();
+    }
     public static void main(String[] args) {
 //        reverseDigit();
 //        factorial();
@@ -89,7 +141,7 @@ class Assignments{
 //        reverseAnything();
 //        perfectNumber();
 //        strongNumber();
-//        sortingArray();
+        sortingArray();
     }
     static void strongNumber(){
         System.out.println("Enter a number to check whether it is Strong or not : ");
@@ -238,6 +290,9 @@ class Constructor {
 // Simple Calculator
 class Calculator{
     public static void main(String[] args) {
+        calculator();
+    }
+    static void calculator(){
         Scanner input = new Scanner(System.in);
         System.out.print("Enter a number : ");
         int num1 = input.nextInt(),result = 0;

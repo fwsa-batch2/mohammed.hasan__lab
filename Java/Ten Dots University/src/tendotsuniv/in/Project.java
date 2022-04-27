@@ -238,8 +238,7 @@ class Form2 extends Frame implements ActionListener {
                 }
             }
             else if(e.getSource().equals(btn3)){         // Deleting Process
-
-                if(!id.isEmpty() || id != ""){
+                if(!id.isEmpty() && id != ""){
                     query = "delete from jdbc where id = " + idTxt.getText();
                     preparedStatement = conn.prepareStatement(query);
                     preparedStatement.execute();

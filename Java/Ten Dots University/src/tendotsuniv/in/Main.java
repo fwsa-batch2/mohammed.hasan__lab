@@ -1,4 +1,6 @@
 package tendotsuniv.in;
+import com.fwsa.Nested_Class;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -17,7 +19,7 @@ public class Main {
         final int a = 5;
         int b = 10;
         Cat2 obj = new Cat2();
-        obj.main();
+//        obj.main();
 
 //        Hasan h = new Hasan();
 //        h.twoDimenArray();
@@ -25,7 +27,7 @@ public class Main {
 //        dateTimeConcept();
 //         System.out.println("Sum is " + (a+b));
 //         Main h = new Main();
-        // arrayTraversing();
+//         arrayTraversing();
 //        fhrnToCelsius();
 //        addingAllDigits();
 
@@ -193,8 +195,6 @@ class Cat2 implements Animal2{
         cat.name();
         forEnum();
     }
-
-    // ENUM Concept
     void forEnum(){
         enum Grades{        // Can also be declared outside of a Class and also use it since it is a class
             LOW,
