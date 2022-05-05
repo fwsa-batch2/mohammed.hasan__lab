@@ -141,7 +141,7 @@ class Assignments{
 //        reverseAnything();
 //        perfectNumber();
 //        strongNumber();
-        sortingArray();
+//        sortingArray();
     }
     static void strongNumber(){
         System.out.println("Enter a number to check whether it is Strong or not : ");

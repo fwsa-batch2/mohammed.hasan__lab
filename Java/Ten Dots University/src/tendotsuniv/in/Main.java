@@ -8,8 +8,8 @@ import java.util.*;
 // import java.lang.System.Logger;
 public class Main {
     public static void main(String[] name) {
-        System.out.println("first name " + name[0].toLowerCase());
-        System.out.println("second name " + name[1].toUpperCase());
+//        System.out.println("first name " + name[0].toLowerCase());
+//        System.out.println("second name " + name[1].toUpperCase());
 
         //      Calling classes in other files but same package
 //        Sub subObj = new Sub();
@@ -18,8 +18,11 @@ public class Main {
 
         final int a = 5;
         int b = 10;
-        Cat2 obj = new Cat2();
+        System.out.println((new String("Hasan")).hashCode() + "   " + (new String("Hasan")).hashCode());
+//        Cat obj = new Cat();
 //        obj.main();
+        Hasan ob = new Hasan();
+//        ob.twoDimenArray();
 
 //        Hasan h = new Hasan();
 //        h.twoDimenArray();
@@ -172,9 +175,10 @@ class Cat extends Animal{
     void name(){
         System.out.println("Cat");
     }
-    public static void main(){
+    public void main(){
         Animal cat = new Cat();
         cat.name();
+        super.name();
     }
 }
 
@@ -194,15 +198,25 @@ class Cat2 implements Animal2{
         Animal2 cat = new Cat2();
         cat.name();
         forEnum();
+ 
     }
     void forEnum(){
         enum Grades{        // Can also be declared outside of a Class and also use it since it is a class
-            LOW,
+            LOW(5),   
             MEDIUM,
-            HIGH
+            HIGH;
+            int a = 5; // If want can pass argument to constructor. Only three objects or options are avail. for enum
+            Grades(){};
+            Grades(int a){
+            	this.a = a;
+            }
+           public void print() {
+            	System.out.println(a);
+            }
+        	
         }
-        Grades var = Grades.LOW;
-       System.out.println(var);
+        Grades var = Grades.HIGH;
+        var.print();
    }
 }
 
