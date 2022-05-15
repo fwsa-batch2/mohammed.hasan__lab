@@ -19,13 +19,12 @@ public class Multi_Threading implements Runnable {
         System.out.println("Ended");
     }
     @Override
-    public void run() {
+   public void run() {
         try {
             for(int i = 0; i < 5; i++){
 //                if(Thread.currentThread().getId() == 17) {
 //                    System.out.println(Thread.currentThread().getId());
 //                      Thread.yield();
-//                }
                thread(thread,i);
             }
         }catch (Exception err){

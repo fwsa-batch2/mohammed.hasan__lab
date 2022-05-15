@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.util.*;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -142,6 +143,21 @@ class Assignments{
 //        perfectNumber();
 //        strongNumber();
 //        sortingArray();
+          prime();
+    }
+    static void prime(){
+        System.out.println("Enter a number to check whether it is prime number or not");
+        int n = input.nextInt();
+        // BigInteger Class stores more than what a long can store
+        BigInteger a =new BigInteger("839743849759465768397586");
+        for (int i = 2 ; i < n; i++){
+            if (n%i == 0 && n!=i){
+
+                System.out.println("It is not a prime number");
+                return;
+            }
+        }
+        System.out.println("It is Prime number");
     }
     static void strongNumber(){
         System.out.println("Enter a number to check whether it is Strong or not : ");

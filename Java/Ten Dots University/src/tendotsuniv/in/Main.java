@@ -27,7 +27,7 @@ public class Main {
 //        Hasan h = new Hasan();
 //        h.twoDimenArray();
 //        returnName();
-//        dateTimeConcept();
+        dateTimeConcept();
 //         System.out.println("Sum is " + (a+b));
 //         Main h = new Main();
 //         arrayTraversing();
@@ -36,11 +36,9 @@ public class Main {
 
     }
     static void dateTimeConcept(){
-        //        LocalDateTime date = LocalDateTime.now();   Since now() is static we can call directly
+        //        LocalDateTime date = LocalDateTime.now();
         System.out.println(LocalDateTime.now());
-
-//        Formatting a date according to our wish
-        DateTimeFormatter dateObj = DateTimeFormatter.ofPattern("dd E,MMMM yyyy hh-mm");
+        DateTimeFormatter dateObj = DateTimeFormatter.ofPattern("dd EEE,MMMM yyyy hh-mm");
         // If 3 'M' is given for month then displays shorter
         System.out.println( LocalDateTime.now().format(dateObj));
     }
@@ -183,7 +181,7 @@ class Cat extends Animal{
 }
 
 // Interface  i.e complete abstraction
-interface Animal2{
+interface Animal2 {
    public void name();       // Cannot have any method with body. This is the difference between abstraction
     // and interface. Whereas abstraction can have method with body also.
     static void user(){
@@ -213,7 +211,6 @@ class Cat2 implements Animal2{
            public void print() {
             	System.out.println(a);
             }
-        	
         }
         Grades var = Grades.HIGH;
         var.print();
