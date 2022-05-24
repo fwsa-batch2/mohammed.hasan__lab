@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Update Form</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<body>
+<div class="container my-5">
+  <div class="row">
+    <div class="text-center container card col-lg-6 col-sm-6 col-md-6">
+      <h1 class="text-center"> Update Student</h1>
+      <div class="card-body">
+        <form th:action="@{/students/{id}(id=${student.id})}" th:object="${student}" method="POST">
+          <div class="form-group">
+            <label>Student Id:</label><br>
+            <input disabled style="width:300px" type="text" name="id" th:field="*{id}">
+          </div>
+          <div class="form-group">
+            <label>Student First Name: </label><br>
+            <input style="width:300px" type="text" name="firstName" th:field="*{firstName}">
+          </div>
+          <div class="form-group">
+            <label>Student Last Name: </label><br>
+            <input style="width:300px" type="text" name="lastName" th:field="*{lastName}">
+          </div>
+          <div class="form-group">
+            <label>Student City : </label><br>
+            <input style="width:300px" type="text" name="city" th:field="*{city}">
+          </div>
+          <div class="box-footer text-center">
+            <button class="btn btn-primary" type="submit">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

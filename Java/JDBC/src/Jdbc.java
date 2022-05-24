@@ -7,18 +7,21 @@ public class Jdbc {
    static Connection conn;
    static Statement statement;
     public static void main(String[] args) throws Exception {
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jdbc","hasan","HasanTheDON7.");
+        conn = DriverManager.getConnection("jdbc:mysql://192.168.16.33/java","Riyas","Riyas@2002");
         statement = conn.createStatement();
+        resultSet = statement.executeQuery("select id from students");
+        System.out.println(resultSet);
+
 //        statement.execute("delete from students where id=1");
 
-//        PreparedStatement preparedStatement = conn.prepareStatement("insert into students values(?,?,?,?)");
-//        preparedStatement.setInt(1,2);
+        PreparedStatement preparedStatement = conn.prepareStatement("insert into students values(?,?,?,?)");
 //        preparedStatement.setString(2,"Kasi");
 //        preparedStatement.setString(3,"Antony");
+//        preparedStatement.setInt(1,2);
 //        preparedStatement.setString(4,"Thoothukudi");
 //        preparedStatement.execute();
 
-        showAll();
+//        showAll();
     }
     static void showAll() throws SQLException {
         resultSet = statement.executeQuery("select * from students");

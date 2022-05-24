@@ -1,9 +1,5 @@
 package com.fwsa;
 
-import tendotsuniv.in.Sub;
-
-import java.util.ArrayList;
-
 public class Encapsulation {
     private String name;
     private String password;

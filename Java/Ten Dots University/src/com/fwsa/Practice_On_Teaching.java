@@ -79,6 +79,8 @@ class Solution {
     }
 
     static void formattingInOutput(){
+        List all = new ArrayList();
+        System.out.println(Arrays.asList(Collections.reverse(all)));
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<3;i++)
         {

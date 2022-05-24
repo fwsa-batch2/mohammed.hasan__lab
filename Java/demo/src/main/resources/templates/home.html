@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeLeaf.org">
+<head>
+<!--    <meta charset="UTF-8">-->
+<!--    <meta charset = "ISO-8859-1" />-->
+    <title>Home Page</title>
+    <style>
+        p{
+        font-size:30px;
+        }
+    </style>
+</head>
+<body>
+<p th:text="'Hi ' + ${obj.name} "></p>
+<p th:text="' Your Id is : ' + ${obj.id}"></p>
+
+
+</body>
+</html>
