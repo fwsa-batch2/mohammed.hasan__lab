@@ -1,15 +1,18 @@
 class Dog
-    def name(petName)
-        @petName = petName
+    @@same_for_all_instances
+    def name(pet_name)
+        @pet_name = pet_name
     end
     def sound
-        puts "#{@petName} Barks"
+        puts "#{@pet_name} Barks"
     end
     def movesTo(destination)
-        puts "#{@petName} goes to #{destination}"
+        puts "#{@pet_name} goes to #{destination}"
     end
 end
 class Cat
+    @@same_for_all_instances
+    @instance_var
     def sound
         puts "Cat Meows"
     end
