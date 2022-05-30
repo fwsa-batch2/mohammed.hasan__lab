@@ -1,5 +1,6 @@
 class Dog
     @@same_for_all_instances
+    attr_accessor :pet_name     # Combo of attr_reader and attr_writer
     def name(pet_name)
         @pet_name = pet_name
     end
@@ -23,6 +24,7 @@ end
 
 ob = Dog.new
 ob.name("Blacky")
+puts ob.pet_name = "Whity"
 ob.sound
 ob.movesTo("Freshworks")
 
