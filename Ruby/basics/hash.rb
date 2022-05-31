@@ -4,8 +4,10 @@ hash = {
     3 => "Riyas",
     4 => nil
  }
- puts hash["Name"]
- puts hash[2]
+ hash.each do |key, value|
+    puts "Key : #{key}   Value : #{value}"
+ end    
+
  # Gives new copy with removed nil values
 hash1 = hash.compact
 puts hash1
