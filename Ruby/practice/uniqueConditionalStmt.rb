@@ -8,3 +8,5 @@ i=4
 unless i == 10  
     puts "Unless Clause"
 end
+
+4.times {|x| puts x}

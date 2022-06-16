@@ -49,6 +49,6 @@ begin
       if attempt_again
         attempt_again = false
         puts "Error"
-    retry       
-  end
+        retry       
+      end
 end
