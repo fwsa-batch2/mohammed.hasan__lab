@@ -1,6 +1,8 @@
 # RECORD TYPE, SOURCE, DESTINATION
-A, ruby-lang.org, 221.186.184.75
-A, google.com, 172.217.163.46
+A,221.186.184.75, ruby-lang.org
+A, google.com,172.217.163.46
+A, malai.com, 134.234.243
+# commented
 
 CNAME, www.ruby-lang.org, ruby-lang.org
 CNAME, mail.google.com, google.com
