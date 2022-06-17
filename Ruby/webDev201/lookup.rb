@@ -9,7 +9,7 @@ end
 # `domain` contains the domain name we have to look up.
 domain = get_command_line_argument
 
-file = File.open("C:\\Users\\hasan\\mohammed.hasan__lab\\Ruby\\webDev201\\zone.txt")
+file = File.open("C:\\Users\\hasan\\mohammed.hasan__lab\\Ruby\\webDev201\\zone")
 dns_raw = File.readlines(file)
 
 def parse_dns(array)
