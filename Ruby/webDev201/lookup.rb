@@ -53,4 +53,4 @@ dns_raw = File.readlines(file)
 dns_records = parse_dns(dns_raw)
 lookup_chain = [domain]
 lookup_chain = resolve(dns_records, lookup_chain, domain)
-puts "DNS Result : #{lookup_chain.join(" => ")}"
+puts "#{lookup_chain.join(" => ")}"
