@@ -4,6 +4,9 @@ A, google.com,172.217.163.46
 A, malai.com, 134.234.243
 # commented
 
+
+
+
 CNAME, www.ruby-lang.org, ruby-lang.org
 CNAME, mail.google.com, google.com
 CNAME, gmail.com, mail.google.com
