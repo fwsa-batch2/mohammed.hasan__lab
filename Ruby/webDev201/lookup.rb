@@ -43,8 +43,13 @@ end
 def resolve(dns_records, lookup_chain, domain)
   key = lookup_chain.last
   match_record = dns_records.select { |record| record[:key] == key }
-  lookup_chain.push(match_record[0][:destination])
-  (!!match_record[0][:destination].match(/\d.\d.\d/)) ? (return lookup_chain) : resolve(dns_records, lookup_chain, domain)
+  if match_record[0]
+    lookup_chain.push(match_record[0][:destination])
+    (!!match_record[0][:destination].match(/\d.\d.\d/)) ? (return lookup_chain) : resolve(dns_records, lookup_chain, domain)
+  else
+    puts "Please enter proper domain name"
+    exit
+  end
 end
 
 file = File.open("./zone")
@@ -53,4 +58,4 @@ dns_raw = File.readlines(file)
 dns_records = parse_dns(dns_raw)
 lookup_chain = [domain]
 lookup_chain = resolve(dns_records, lookup_chain, domain)
-puts "#{lookup_chain.join(" => ")}"
+puts lookup_chain.join(" => ")
